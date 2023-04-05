@@ -10,13 +10,10 @@
 <body class="antialiased">
     <div
         class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-        <div class="hidden fixed top-0 left-20 px-6 py-4 sm:block">
-            Claimax BV
-        </div>
         @if (Route::has('login'))
         <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
             @auth
-            <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
+            <a href="{{ url('/admin') }}" class="fixed top-4 right-20 text-sm text-gray-700 dark:text-gray-500 underline">Beheerpagina</a>
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
 
@@ -27,11 +24,10 @@
                 </button>
             </form>
             @else
-            <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500">Log in</a>
+            <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
             @endauth
         </div>
         @endif
-        <div></div>
         <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
 
             <form>
@@ -76,8 +72,15 @@
                         class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         placeholder="Eventuele opmerkingen..."></textarea>
                 </div>
+                <div class="flex items-center mb-4">
+                    <input id="default-checkbox" type="checkbox" value=""
+                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                    <label for="default-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Ik
+                        geef toestemming voor het verwerken en gebruiken van mijn gegevens</label>
+                </div>
                 <button type="submit"
-                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Verzenden</button>
+                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Verzenden
+                </button>
             </form>
         </div>
     </div>

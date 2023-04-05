@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Api\ReasonController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,22 +14,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () { 
     return view('dashboard');
 });
-
-// Route::get('/', function () { 
-//     return view('home');
-// });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+// Route::get('/admin', function () {
+//     return view('admin', [
+//         'reasons' => $reasons
+//     ]);
+// })->middleware(['auth', 'verified'])->name('admin');
+
+// Route::resource('admin', ReasonController::class)->middleware(['auth', 'verified']);
+
+//Beheer pagina redenen
+Route::get('admin', [ReasonController::class, 'index'])->name('admin.index');
+Route::post('admin', [ReasonController::class, 'update'])->name('admin.update');
 
 require __DIR__.'/auth.php';
