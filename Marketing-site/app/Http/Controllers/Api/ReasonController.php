@@ -71,14 +71,7 @@ class ReasonController extends Controller
      */
     public function update(Request $request)
     {
-        if ($request->ajax()) {
-            Reason::find($request->pk)
-                ->update([
-                    $request->name => $request->value
-                ]);
-
-            return response()->json(['success' => true]);
-        }
+        //
     }
 
     /**
