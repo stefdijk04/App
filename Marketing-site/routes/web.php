@@ -23,16 +23,11 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-// Route::get('/admin', function () {
-//     return view('admin', [
-//         'reasons' => $reasons
-//     ]);
-// })->middleware(['auth', 'verified'])->name('admin');
+// Route::resource('reasons', ReasonController::class)->middleware(['auth', 'verified']);
 
-// Route::resource('admin', ReasonController::class)->middleware(['auth', 'verified']);
-
-//Beheer pagina redenen
-Route::get('admin', [ReasonController::class, 'index'])->name('admin.index');
-Route::post('admin', [ReasonController::class, 'update'])->name('admin.update');
+// //Beheer pagina redenen
+Route::get('admin', [ReasonController::class, 'index'])->name('reasons.index');
+Route::get('admin/edit', [ReasonController::class, 'edit'])->name('reasons.edit');
+Route::put('admin', [ReasonController::class, 'update'])->name('reasons.update');
 
 require __DIR__.'/auth.php';

@@ -31,24 +31,23 @@
         @endif
 
         <div class="relative overflow-x-auto">
-            <table class="w-full text-lg text-left text-gray-500 dark:text-gray-400">
-                <thead class="text-sm text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400p">
-                    <tr>
-                        <th scope="col" class="py-3 px-3 rounded-l-lg">Redenen</th>
-                        <th scope="col" class="py-3 px-3 rounded-r-lg"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($reasons as $reason)
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ $reason->name }}</td>
-                        <td class="px-6 py-4">
-                            <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Bewerk</a>
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
+            <form action="{{ route('reasons.update', $reason->id) }}" method="POST">
+                @csrf
+                @method('PUT')
+
+                <div>
+                    <label class="block text-sm font-bold text-gray-700" for="name">Naam:</label>
+                    <input type="text" name="name" value="{{ $reason->name }}"
+                        class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 placeholder:text-right focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                        placeholder="{{ $reason->name }}">
+                </div>
+
+                <div class="flex items-center justify-start mt-4 gap-x-2">
+                    <button type="submit"
+                        class="px-6 py-2 text-sm font-semibold rounded-md shadow-md text-green-100 bg-green-500 hover:bg-green-600 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300">Submit</button>
+                </div>
+
+            </form>
         </div>
     </div>
 </body>

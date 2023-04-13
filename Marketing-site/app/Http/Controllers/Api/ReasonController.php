@@ -14,7 +14,7 @@ class ReasonController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    { // $reasons = alle records binnen de model Reason en geeft de view index.blade.php terug met de variabele
         $reasons = Reason::all();
         return view('reasons.index', compact('reasons'));
     }
@@ -25,8 +25,8 @@ class ReasonController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        //
+    { // geeft de view create.blade.php in de map reasons terug
+        return view('reasons.create');
     }
 
     /**
@@ -58,8 +58,8 @@ class ReasonController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Reason $reason)
-    {
-        //
+    { // geeft de view edit.blade.php in de map reasons terug
+        return view('reasons.edit', compact('reason'));
     }
 
     /**
@@ -71,7 +71,7 @@ class ReasonController extends Controller
      */
     public function update(Request $request)
     {
-        //
+        
     }
 
     /**
