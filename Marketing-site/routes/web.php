@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\ReasonController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,8 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::get('/', function () { 
+    return view('dashboard');
 });
 
 Route::get('/dashboard', function () {
