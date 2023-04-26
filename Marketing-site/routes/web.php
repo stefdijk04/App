@@ -16,8 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-<<<<<<< Updated upstream
-=======
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -32,4 +30,3 @@ Route::get('admin', [ReasonController::class, 'index'])->name('reasons');
 
 
 require __DIR__.'/auth.php';
->>>>>>> Stashed changes
