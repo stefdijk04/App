@@ -16,20 +16,3 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-<<<<<<< Updated upstream
-=======
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-// Route::resource('reasons', ReasonController::class)->middleware(['auth', 'verified']);
-
-// //Beheer pagina redenen
-Route::get('admin', [ReasonController::class, 'index'])->name('reasons');
-
-//Livewire
-
-
-require __DIR__.'/auth.php';
->>>>>>> Stashed changes
