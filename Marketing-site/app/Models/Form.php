@@ -13,4 +13,15 @@ class Form extends Model
     protected $fillable = [
         'name', 'telephone', 'email', 'comment', 'reason_id'
     ];
+
+    // public static function boot() {
+  
+    //     parent::boot();
+  
+    //     static::created(function ($item) {
+                
+    //         $userEmail = "vanstefek@gmail.com";
+    //         Mail::to($userEmail)->send(new SendMail($item));
+    //     });
+    // }
 }

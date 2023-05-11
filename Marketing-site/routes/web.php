@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\ReasonController;
+use App\Http\Livewire\Forms;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', function () { 
+Route::get('/', function () {
     return view('dashboard');
 });
 
@@ -26,9 +27,10 @@ Route::get('/dashboard', function () {
 // Route::resource('reasons', ReasonController::class)->middleware(['auth', 'verified']);
 
 // //Beheer pagina redenen
-Route::get('admin', [ReasonController::class, 'index'])->name('reasons');
+Route::get('admin', [ReasonController::class, 'index'])->middleware(['auth', 'verified'])->name('reasons');
 
 //Livewire
+Route::post('/dashboard', [Forms::class, 'submit'])->name('submit');
 
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
